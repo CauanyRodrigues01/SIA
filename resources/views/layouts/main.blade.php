@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
 
     <!-- CSS da aplicação -->
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <!-- Java Script da aplicação -->
     <!-- Fonte do Google -->
 
