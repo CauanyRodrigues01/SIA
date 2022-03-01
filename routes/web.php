@@ -13,18 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Use App\Http\Controllers\ImovelController;
 
-Route::get('/QuemSomos', function () {
-    return view('quemSomos');
-});
+Route::get('/', [ImovelController::class, 'index']);
 
-Route::get('/Corretores', function () {
-    return view('corretores');
-});
+Route::get('/QuemSomos', [ImovelController::class, 'quemSomos']);
 
-Route::get('/Contato', function () {
-    return view('contato');
-});
+Route::get('/Corretores', [ImovelController::class, 'corretores']);
+
+Route::get('/Contato', [ImovelController::class, 'contato']);
+
+Route::get('/Corretores/Criar', [ImovelController::class, 'criarCorretor']);
+
+Route::get('/Imoveis/Criar', [ImovelController::class, 'criarImovel']);
