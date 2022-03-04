@@ -26,3 +26,5 @@ Route::get('/Contato', [ImovelController::class, 'contato']);
 Route::get('/Corretores/Criar', [ImovelController::class, 'criarCorretor']);
 
 Route::get('/Imoveis/Criar', [ImovelController::class, 'criarImovel']);
+
+Route::post('/Imoveis', [ImovelController::class, 'store']);
