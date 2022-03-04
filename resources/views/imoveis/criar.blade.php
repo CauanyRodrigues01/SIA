@@ -6,76 +6,102 @@
 
 <div class="col-md-6 offset-md-3">
 
-    <form>
+    <form method="post" action="/Imoveis">
+        @csrf
         <h1 class="text-center">Adicionar um imóvel</h1>
-        <div>
-            <p>Qual é o tipo do imóvel?</p>
+        <div id="form-parte-1">
             <div>
-                <input type="radio" id="apartamento" name="tipo" value="apartamento">
-                <label for="apartamento">apartamento</label>
-                <?php
+                <label for="anunciante">Anunciante:</label>
+                <input type="text" name="anunciante" id="anunciante">
+            </div>
+            <div>
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco">
+            </div>
+            <div>
+                <label for="fotos">Fotos:</label>
+                <input type="text" id="fotos" name="fotos">
+            </div>
+            <div>
+                <label for="valor">Valor:</label>
+                <input type="text" id="valor" name="valor">
+            </div>
+            <div id="container-tipos">
+                <p>Qual é o tipo do imóvel?</p>
+                <select id="tipos">
+                    <option value="apartamento">Apartamento</option>
+                    <option value="casa">Casa</option>
+                    <option value="terreno">Terreno</option>
+                    <option value="fazenda" >Fazenda</option>
+                </select>
 
-                    if(isset($_POST['enviar'])) {
-                        $tipo = $_POST['tipo'];
-                        if($tipo == 'apartamento') {
-                            echo "ola";
-                        }
-                    }
-
-                ?>
+                <button type="button" onclick="checaValor()">Próximo</button>
             </div>
-            <div>
-                <input type="radio" id="casa" name="tipo" value="casa">
-                <label for="casa">casa</label>
+        </div>
+        <div id="form-parte-2">
+            <!--<div id="form-apartamento">
+                <div>
+                    <label for="andar">Andar:</label>
+                    <input type="number" name="andar" id="andar">
+                </div>
+                <div>
+                    <label for="nome">Nome do prédio:</label>
+                    <input type="text" id="nome" name="nome">
+                </div>
+                <div>
+                    <label for="caracteristica">Caracteristicas do prédio</label>
+                    <textarea name="caracteristica" id="caracteristica" cols="40" rows="2"></textarea>
+                </div>
             </div>
-            <div>
-                <input type="radio" id="terreno" name="tipo" value="terreno">
-                <label for="terreno">terreno</label>
+            <div id="form-casa">
+                <div>
+                    <label for="area-construida">Área construída:</label>
+                    <input type="text" name="area-construida" id="area-construida">
+                </div>
+                <div>
+                    <label for="area-terreno">Área do terreno:</label>
+                    <input type="text" name="area-terreno" id="area-terreno">
+                </div>
             </div>
-            <div>
-                <input type="radio" id="fazenda" name="tipo" value="fazenda">
-                <label for="fazenda">fazenda</label>
+            <div id="form-terreno">
+                <div>
+                    <label for="frente">Frente:</label>
+                    <input type="text" name="frente" id="frente">
+                </div>
+                <div>
+                    <label for="lado">Lado:</label>
+                    <input type="text" name="lado" id="lado">
+                </div>
+                <div>
+                    <label for="agua">Possui água?</label>
+                    <input type="number" id="agua" name="agua">
+                </div>
+                <div>
+                    <label for="luz">Possui luz?</label>
+                    <input type="number" name="luz" id="luz">
+                </div>
             </div>
-
+            <div id="form-fazenda">
+                SE FOR Fazenda
+                <div>
+                    <label for="possui-casa">Possui casa?</label>
+                    <input type="number" name="possui-casa" id="possui-casa">
+                </div>
+                <div>
+                    <label for="possui-plantacao">Possui plantação?</label>
+                    <input type="number" name="possui-plantacao" id="possui-plantacao">
+                </div>
+                <div>
+                    <label for="possui-animais">Possui animais?</label>
+                    <input type="number" name="possui-animais" id="possui-animais">
+                </div>
+            </div>-->
         </div>
 
-        <button type="submit" style="background: #F9E373" class="w-100 btn btn-lg btn-warning" name="enviar">Enviar</button>
+        <div id="button-enviar">
+            <!--<button type="submit" style="background: #F9E373" class="w-100 btn btn-lg btn-warning" name="enviar">Enviar</button>-->
+        </div>
       </form>
 </div>
-
-<!--
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-
-    <?php
-        if($_FILES) {
-            print_r($_FILES['arquivo']);
-        }
-    ?>
-
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" name="form1" enctype="multipart/form-data">
-        <button id="add">Add</button>
-        <button id="remove">Remove</button>
-        <input type="submit" value="Enviar dados">
-</form>
-
-<script>
- $(document).ready(function(){
-
-    $("#add").click(function(e){
-        e.preventDefault();
-        $("form").append('<input type="file" name="arquivo[]" value="Arquivo 2">');
-    });
-
-    $("#remove").click(function(e){
-        e.preventDefault();
-        $("form input[type='file']:last").remove();
-    });
-
- })
-</script>
--->
 
 @endsection
