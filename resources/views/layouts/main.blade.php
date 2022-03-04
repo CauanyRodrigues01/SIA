@@ -41,6 +41,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/Contato">Contato</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Imoveis">Imoveis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Imoveis/Criar">Adicionar um imóvel</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

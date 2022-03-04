@@ -9,34 +9,33 @@
     <form method="post" action="/Imoveis">
         @csrf
         <h1 class="text-center">Adicionar um imóvel</h1>
-        <div id="form-parte-1">
+        <div>
             <div>
                 <label for="anunciante">Anunciante:</label>
-                <input type="text" name="anunciante" id="anunciante">
+                <input type="text" name="anunciante" id="anunciante" class="form-control">
             </div>
             <div>
                 <label for="endereco">Endereço:</label>
-                <input type="text" id="endereco" name="endereco">
+                <input type="text" id="endereco" name="endereco" class="form-control">
             </div>
             <div>
                 <label for="fotos">Fotos:</label>
-                <input type="text" id="fotos" name="fotos">
+                <input type="text" id="fotos" name="fotos" class="form-control">
             </div>
             <div>
                 <label for="valor">Valor:</label>
-                <input type="text" id="valor" name="valor">
+                <input type="number" class="form-control" id="valor" name="valor">
             </div>
             <div id="container-tipos">
-                <p>Qual é o tipo do imóvel?</p>
-                <select id="tipos">
+                <label for="tipos">Qual é o tipo do imóvel?</label>
+                <select name="tipo" id="tipos" class="form-control">
                     <option value="apartamento">Apartamento</option>
                     <option value="casa">Casa</option>
                     <option value="terreno">Terreno</option>
                     <option value="fazenda" >Fazenda</option>
                 </select>
-
-                <button type="button" onclick="checaValor()">Próximo</button>
             </div>
+            <button type="submit" style="background: #F9E373" class="w-100 btn btn-lg btn-warning" name="enviar">Próximo</button>
         </div>
         <div id="form-parte-2">
             <!--<div id="form-apartamento">

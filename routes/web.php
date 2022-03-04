@@ -13,18 +13,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Use App\Http\Controllers\ImovelController;
+Use App\Http\Controllers\ImoveisController;
 
-Route::get('/', [ImovelController::class, 'index']);
+Route::get('/', [ImoveisController::class, 'index']);
 
-Route::get('/QuemSomos', [ImovelController::class, 'quemSomos']);
+Route::get('/QuemSomos', [ImoveisController::class, 'quemSomos']);
 
-Route::get('/Corretores', [ImovelController::class, 'corretores']);
+Route::get('/Corretores', [ImoveisController::class, 'corretores']);
 
-Route::get('/Contato', [ImovelController::class, 'contato']);
+Route::get('/Contato', [ImoveisController::class, 'contato']);
 
-Route::get('/Corretores/Criar', [ImovelController::class, 'criarCorretor']);
+Route::get('/Corretores/Criar', [ImoveisController::class, 'criarCorretor']);
 
-Route::get('/Imoveis/Criar', [ImovelController::class, 'criarImovel']);
+Route::get('/Imoveis', [ImoveisController::class, 'imoveis']);
 
-Route::post('/Imoveis', [ImovelController::class, 'store']);
+Route::get('/Imoveis/Criar', [ImoveisController::class, 'criarImovel']);
+
+Route::post('/Imoveis', [ImoveisController::class, 'salvarImovel']);
+
+Route::get('/Imoveis/Criar/Apartamento', [ImoveisController::class, 'criarImovelApartamento']);
+
+Route::post('/Imoveis/Apartamento', [ImoveisController::class, 'salvarApartamento']);
+
+Route::get('/Imoveis/Criar/Casa', [ImoveisController::class, 'criarImovelCasa']);
+
+Route::post('/Imoveis/Casa', [ImoveisController::class, 'salvarCasa']);
+
+Route::get('/Imoveis/Criar/Terreno', [ImoveisController::class, 'criarImovelTerreno']);
+
+Route::post('/Imoveis/Terreno', [ImoveisController::class, 'salvarTerreno']);
+
+Route::get('/Imoveis/Criar/Fazenda', [ImoveisController::class, 'criarImovelFazenda']);
+
+Route::post('/Imoveis/Fazenda', [ImoveisController::class, 'salvarFazenda']);

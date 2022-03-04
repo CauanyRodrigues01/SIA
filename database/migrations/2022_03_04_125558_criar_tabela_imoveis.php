@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CriarTabelaApartamento extends Migration
+class CriarTabelaImoveis extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CriarTabelaApartamento extends Migration
      */
     public function up()
     {
-        Schema::create('apartamentos', function (Blueprint $table) {
+        Schema::create('imoveis', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('andar');
-            $table->string('nome_do_predio');
-            $table->text('predio_descricao');
+            $table->string('anunciante');
+            $table->string('endereco');
+            //fotos
+            $table->float('valor');
+            $table->string('tipo');
         });
     }
 
@@ -29,6 +31,6 @@ class CriarTabelaApartamento extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartamentos');
+        Schema::dropIfExists('imoveis');
     }
 }
