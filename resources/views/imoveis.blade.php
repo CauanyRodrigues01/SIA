@@ -10,13 +10,12 @@
     <div id="cards-container" class="row">
         @foreach($imoveis as $imovel)
         <div class="card col-md-3">
+            <img src="/img/imoveis/{{ $imovel->image }}">
             <div class="card-bory">
-                <p>Anunciante:</p>
-                <h5>{{ $imovel->anunciante }}</h5>
-                <p>Endereço:</p>
-                <h5>{{ $imovel->endereco }}</h5>
-                <p>Valor:</p>
-                <h5>{{ $imovel->valor }}</h5>
+                <h5>{{ $imovel->tipo_anuncio }}</h5>
+                <p>Anunciado por <span>{{ $imovel->anunciante }}</span> </p>
+                <p>Localizado em <span>{{ $imovel->endereco }}</span></p>
+                <p>Valor = <span>{{ $imovel->valor }}R$</span></p>
                 <a href="#" class="btn btn-primary">Saber mais</a>
             </div>
         </div>
