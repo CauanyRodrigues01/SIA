@@ -60,10 +60,25 @@ class ImoveisController extends Controller
         $imovel = new Imoveis;
 
         $imovel->anunciante = $request->anunciante;
+        $imovel->tipo_anuncio = $request->tipo_anuncio;
         $imovel->endereco = $request->endereco;
-        //$imovel->fotos = $request->fotos;
         $imovel->valor = $request->valor;
         $imovel->tipo = $request->tipo;
+
+        //Image upload
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $requestImage = $request->image;
+
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . '.' . $extension;
+
+            $requestImage->move(public_path('img/imoveis'), $imageName);
+
+            $imovel->image = $imageName;
+
+        }
 
         $imovel->Save();
 
