@@ -9,7 +9,6 @@
     <form method="post" action="/Imoveis/Apartamento">
         @csrf
         <h1 class="text-center">Apartamento</h1>
-        <h1>{{ id }}</h1>
         <div>
             <div>
                 <label for="andar">Andar:</label>
