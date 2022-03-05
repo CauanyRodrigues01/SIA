@@ -17,8 +17,9 @@ class CriarTabelaImoveis extends Migration
             $table->id();
             $table->timestamps();
             $table->string('anunciante');
+            $table->string('tipo_anuncio');
             $table->string('endereco');
-            //fotos
+            $table->string('image');
             $table->float('valor');
             $table->string('tipo');
         });
