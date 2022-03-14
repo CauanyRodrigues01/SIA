@@ -46,3 +46,7 @@ Route::post('/Imoveis/Terreno', [ImoveisController::class, 'salvarTerreno']);
 Route::get('/Imoveis/Criar/Fazenda', [ImoveisController::class, 'criarImovelFazenda']);
 
 Route::post('/Imoveis/Fazenda', [ImoveisController::class, 'salvarFazenda']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
