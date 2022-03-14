@@ -5,7 +5,7 @@
 @section('content')
 
 <main>
-    <div style="background-color:#54b24e" class="position-relative overflow-hidden p-3 p-md-5 text-center">
+    <div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-light">
         <div class="col-md-7 p-lg-5 mx-auto my-5">
             <h1 class="display-4 font-weight-normal">Seu corretor aqui</h1>
             <p class="lead font-weight-normal">Encontre os melhores corretores para seu negócio.</p>
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="py-5 bg-light">
+    <div class="py-5">
         <div class="container">
 
           <div class="row">
