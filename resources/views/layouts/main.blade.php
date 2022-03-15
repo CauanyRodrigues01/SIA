@@ -30,27 +30,52 @@
                 </button>
                 <!-- Links que vão aparecer na tela quando estivre grande -->
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/QuemSomos">Quem somos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Corretores">Corretores</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Contato">Contato</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Imoveis">Imoveis</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Imoveis/Criar">Adicionar um imóvel</a>
-                        </li>
+                    <div class="float-left">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/QuemSomos">Quem somos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Corretores">Corretores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Contato">Contato</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Imoveis">Imoveis</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Imoveis/Criar">Adicionar um imóvel</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="float-right">
+                        <ul class="navbar-nav">
+                            @auth
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard">Minha conta</a>
+                                </li>
+                                <li class="nav-item">
+                                    <form action="/logout" method="POST">
+                                        @csrf
+                                        <a href="/logout" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
+                                    </form>
+                                </li>
+                            @endauth
+                            @guest
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login">Entrar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/register">Cadastrar</a>
+                                </li>
+                            @endguest
+                        </ul>
+                    </div>
 
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -58,12 +83,11 @@
 
     @yield('content')
 
-    <footer class="pt-4 my-md-10 pt-md-5 border-top bg-dark text-white">
+    <footer class="pt-4 my-md-10 pt-md-3 border-top bg-dark text-white">
         <div class="container">
             <div class="row">
-                <div class="col-3 col-md">
-                  <img class="mb-2" src="{{ asset('img/Logo.png') }}" alt="" width="50" height="50">
-                  <span class="text-muted">© 2022</span>
+                <div class="col-1 col-md">
+                    <span class="text-muted"> SIA © 2022</span>
                 </div>
                 <div class="col-3 col-md">
                   <ul class="list-unstyled text-small">

@@ -12,16 +12,16 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active carousel-item-start">
-                <img src="https://pixabay.com/get/g557939db2d63904eb96c6d16ed4bd5d7914923a28f0ae18b594b7c1bb0fa912a07185ad72ccfbbcf013ded5ef0328ea8_1920.jpg" alt="" height="450em" class="d-block w-100">
+                <img src="{{ asset('img/banner3.jpg') }}" alt="" height="450em" class="d-block w-100">
                 <div class="container">
                     <div class="carousel-caption text-black">
-                        <h1>Encontre seu corretor</h1>
-                        <p>Aqui você encontra apenas corretores confiáveis e responsáveis.</p>
+                        <h1 style="color:#fff">Encontre seu corretor</h1>
+                        <p style="color:#fff">Aqui você encontra apenas corretores confiáveis e responsáveis.</p>
                     </div>
                 </div>
             </div>
             <div class="carousel-item carousel-item-next carousel-item-start">
-                <img src="https://s2.glbimg.com/wQJyDNipsvvTjqGjQkQ87YWfLCE=/0x320:2121x1292/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_f035dd6fd91c438fa04ab718d608bbaa/internal_photos/bs/2021/p/d/OiPcMaSFywCGUQAAtLBw/gettyimages-1170264060.jpg" alt="" height="450em" class="d-block w-100 opacity-80">
+                <img src="{{ asset('img/banner2.jpg') }}" alt="" height="450em" class="d-block w-100 opacity-80">
                 <div class="container">
                     <div class="carousel-caption text-black">
                         <h1>Encontre o lar dos seus sonhos</h1>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://s2.glbimg.com/wQJyDNipsvvTjqGjQkQ87YWfLCE=/0x320:2121x1292/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_f035dd6fd91c438fa04ab718d608bbaa/internal_photos/bs/2021/p/d/OiPcMaSFywCGUQAAtLBw/gettyimages-1170264060.jpg" alt="" height="450em" class="d-block w-100">
+                <img src="{{ asset('img/banner1.jpg') }}" height="450em" class="d-block w-100">
                 <div class="container">
                     <div class="carousel-caption text-black">
                         <h1>Encontre o preço ideal</h1>
