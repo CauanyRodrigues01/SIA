@@ -86,16 +86,15 @@ class ImoveisController extends Controller
 
         $imovel->Save();
 
-        if ($request->tipo == 'apartamento') {
+        if ($request->tipo == 'Apartamento') {
             return redirect('/Imoveis/Criar/Apartamento');
-        } else if ($request->tipo == 'casa') {
+        } else if ($request->tipo == 'Casa') {
             return redirect('/Imoveis/Criar/Casa');
-        } else if ($request->tipo == 'terreno') {
+        } else if ($request->tipo == 'Terreno') {
             return redirect('/Imoveis/Criar/Terreno');
-        } else if ($request->tipo == 'fazenda') {
+        } else if ($request->tipo == 'Fazenda') {
             return redirect('/Imoveis/Criar/Fazenda');
         }
-
 
     }
 
@@ -186,6 +185,24 @@ class ImoveisController extends Controller
         $imovelOwner = User::Where('id', $imovel->user_id)->first()->toArray();
 
         return view('imoveis.show', ['imovel' => $imovel, 'imovelOwner' => $imovelOwner]);
+
+    }
+
+    public function dashboard() {
+
+            $user = auth()->user();
+
+            $imoveis = $user->imoveis;
+
+            return view('imoveis.dashboard', ['imoveis' => $imoveis]);
+
+    }
+
+    public function destroy($id) {
+
+        Imoveis::findOrFail($id)->delete();
+
+        return redirect('/Dashboard')->with('msg', 'Imovel excluído com sucesso');
 
     }
 

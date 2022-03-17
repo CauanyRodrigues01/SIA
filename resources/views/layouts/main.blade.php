@@ -56,7 +56,7 @@
                         <ul class="navbar-nav">
                             @auth
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/dashboard">Minha conta</a>
+                                    <a class="nav-link" href="/Dashboard">Meu painel</a>
                                 </li>
                                 <li class="nav-item">
                                     <form action="/logout" method="POST">

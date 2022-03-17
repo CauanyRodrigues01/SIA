@@ -27,11 +27,27 @@ footer {
     display: flex;
 }
 
-imovel-anunciante
-imovel-anuncio
-imovel-endereco
-imovel-valor
-
 #info-container imovel-submit {
     margin: 20px 0;
+}
+
+.dashboard-title-container {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.dashboard-imoveis-container th {
+    width: 25%;
+}
+
+dashboard-imoveis-container form {
+    display: inline-block;
+}
+
+.btn-editar-deletar {
+    display: flex;
+}
+
+.btn-editar-deletar a {
+    margin-right: 10px;
 }

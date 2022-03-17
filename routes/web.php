@@ -17,38 +17,29 @@ Use App\Http\Controllers\ImoveisController;
 
 Route::get('/', [ImoveisController::class, 'index']);
 
-Route::get('/QuemSomos', [ImoveisController::class, 'quemSomos']);
+Route::get('/Imoveis/Criar', [ImoveisController::class, 'criarImovel'])->middleware('auth');
+Route::get('/Imoveis/{id}', [ImoveisController::class, 'show']);
+Route::get('/Imoveis', [ImoveisController::class, 'imoveis']);
+Route::post('/Imoveis', [ImoveisController::class, 'salvarImovel']);
+Route::delete('/Imoveis/{id}', [ImoveisController::class, 'destroy']);
 
-Route::get('/Corretores', [ImoveisController::class, 'corretores']);
+Route::get('/Dashboard', [ImoveisController::class, 'dashboard'])->middleware('auth');
+
+Route::get('/QuemSomos', [ImoveisController::class, 'quemSomos']);
 
 Route::get('/Contato', [ImoveisController::class, 'contato']);
 
+Route::get('/Corretores', [ImoveisController::class, 'corretores']);
 Route::get('/Corretores/Criar', [ImoveisController::class, 'criarCorretor']);
 
-Route::get('/Imoveis', [ImoveisController::class, 'imoveis']);
-
-Route::get('/Imoveis/Criar', [ImoveisController::class, 'criarImovel'])->middleware('auth');
-
-Route::post('/Imoveis', [ImoveisController::class, 'salvarImovel']);
-
-Route::get('/Imoveis/{id}', [ImoveisController::class, 'show']);
-
 Route::get('/Imoveis/Criar/Apartamento', [ImoveisController::class, 'criarImovelApartamento']);
-
 Route::post('/Imoveis/Apartamento', [ImoveisController::class, 'salvarApartamento']);
 
 Route::get('/Imoveis/Criar/Casa', [ImoveisController::class, 'criarImovelCasa']);
-
 Route::post('/Imoveis/Casa', [ImoveisController::class, 'salvarCasa']);
 
 Route::get('/Imoveis/Criar/Terreno', [ImoveisController::class, 'criarImovelTerreno']);
-
 Route::post('/Imoveis/Terreno', [ImoveisController::class, 'salvarTerreno']);
 
 Route::get('/Imoveis/Criar/Fazenda', [ImoveisController::class, 'criarImovelFazenda']);
-
 Route::post('/Imoveis/Fazenda', [ImoveisController::class, 'salvarFazenda']);
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
