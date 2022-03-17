@@ -16,7 +16,7 @@
                 <p>Anunciado por <span>{{ $imovel->anunciante }}</span> </p>
                 <p>Localizado em <span>{{ $imovel->endereco }}</span></p>
                 <p>Valor = <span>{{ $imovel->valor }}R$</span></p>
-                <a href="#" class="btn btn-primary">Saber mais</a>
+                <a href="/Imoveis/{{ $imovel->id }}" class="btn btn-primary">Saber mais</a>
             </div>
         </div>
         @endforeach

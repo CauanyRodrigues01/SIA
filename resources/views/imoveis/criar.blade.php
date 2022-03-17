@@ -29,17 +29,17 @@
             <div id="container-tipos">
                 <label for="tipos">Qual é o tipo do imóvel?</label>
                 <select name="tipo" id="tipos" class="form-control">
-                    <option value="apartamento">Apartamento</option>
-                    <option value="casa">Casa</option>
-                    <option value="terreno">Terreno</option>
-                    <option value="fazenda" >Fazenda</option>
+                    <option value="Apartamento">Apartamento</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Terreno">Terreno</option>
+                    <option value="Fazenda" >Fazenda</option>
                 </select>
             </div>
             <div>
                 <label for="tipo_anuncio">Qual é o tipo de anúcio?</label>
                 <select name="tipo_anuncio" id="tipo_anuncio" class="form-control">
-                    <option value="Venda">Venda</option>
-                    <option value="Aluguel">Aluguel</option>
+                    <option value="Venda-se">Venda-se</option>
+                    <option value="Aluga-se">Aluga-se</option>
                 </select>
             </div>
             <button type="submit" style="background: #F9E373" class="w-100 btn btn-lg btn-warning" name="enviar">Próximo</button>

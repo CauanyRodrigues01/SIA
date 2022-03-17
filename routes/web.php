@@ -27,9 +27,11 @@ Route::get('/Corretores/Criar', [ImoveisController::class, 'criarCorretor']);
 
 Route::get('/Imoveis', [ImoveisController::class, 'imoveis']);
 
-Route::get('/Imoveis/Criar', [ImoveisController::class, 'criarImovel']);
+Route::get('/Imoveis/Criar', [ImoveisController::class, 'criarImovel'])->middleware('auth');
 
 Route::post('/Imoveis', [ImoveisController::class, 'salvarImovel']);
+
+Route::get('/Imoveis/{id}', [ImoveisController::class, 'show']);
 
 Route::get('/Imoveis/Criar/Apartamento', [ImoveisController::class, 'criarImovelApartamento']);
 

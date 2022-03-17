@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Cacau2 extends Migration
+class AddUserIdToImoveis extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class Cacau2 extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('imoveis', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();
+        });
     }
 
     /**
@@ -23,6 +25,8 @@ class Cacau2 extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('imoveis', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        });
     }
 }

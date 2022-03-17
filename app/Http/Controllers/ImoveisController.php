@@ -8,6 +8,7 @@ use App\Models\Apartamentos;
 use App\Models\Casas;
 use App\Models\Terrenos;
 use App\Models\Fazendas;
+use App\Models\User;
 
 class ImoveisController extends Controller
 {
@@ -79,6 +80,9 @@ class ImoveisController extends Controller
             $imovel->image = $imageName;
 
         }
+
+        $user = auth()->user();
+        $imovel->user_id = $user->id;
 
         $imovel->Save();
 
@@ -174,4 +178,15 @@ class ImoveisController extends Controller
         return redirect('/Imoveis');
 
     }
+
+    public function show($id) {
+
+        $imovel = Imoveis::findOrFail($id);
+
+        $imovelOwner = User::Where('id', $imovel->user_id)->first()->toArray();
+
+        return view('imoveis.show', ['imovel' => $imovel, 'imovelOwner' => $imovelOwner]);
+
+    }
+
 }
