@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CriarTabelaTerrenos extends Migration
+class CreateTableFazendas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CriarTabelaTerrenos extends Migration
      */
     public function up()
     {
-        Schema::create('terrenos', function (Blueprint $table) {
+        Schema::create('fazendas', function (Blueprint $table) {
             $table->id();
+
+            $table->boolean('possui_casa');
+            $table->boolean('possui_plantacao');
+            $table->boolean('possui_animais');
+            $table->unsignedBigInteger('imovel_id');
+            $table->foreign('imovel_id')->references('id')->on('imoveis');
+
             $table->timestamps();
-            $table->string('frente');
-            $table->string('lado');
-            $table->boolean('agua');
-            $table->boolean('luz');
         });
     }
 
@@ -30,6 +33,6 @@ class CriarTabelaTerrenos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('terrenos');
+        Schema::dropIfExists('fazendas');
     }
 }

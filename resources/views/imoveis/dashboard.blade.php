@@ -21,12 +21,12 @@
             <tbody>
                 @foreach($imoveis as $imovel)
                     <tr>
-                        <th scropt="row">{{ $loop->index + 1 }}<a href="/Imoveis/{{ $imovel->id }}"> imovel</a></th>
+                        <th scropt="row">{{ $loop->index + 1 }}<a href="/Imoveis/{{ $imovel->id }}"> Imóvel</a></th>
                         <td>{{ $imovel->tipo_anuncio }}</td>
                         <td>{{ $imovel->tipo }}</td>
                         <td>{{ $imovel->valor }}</td>
                         <td class="btn-editar-deletar">
-                            <a href="#" class="btn btn-info edit-btn">Editar</a>
+                            <a href="/Imoveis/Edit/{{$imovel->id}}" class="btn btn-info edit-btn">Editar</a>
                             <form action="/Imoveis/{{ $imovel->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -37,7 +37,7 @@
             </tbody>
         </table>
     @else
-        <p>Você ainda não tem eventos, <a href="/Imoveis/Criar">Criar evento</a></p>
+        <p>Você ainda não tem imóveis, <a href="/Imoveis/Criar">Criar imóvel</a></p>
     @endif
 </div>
 

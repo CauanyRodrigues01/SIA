@@ -46,13 +46,13 @@ class ImoveisController extends Controller
 
         $imoveis = Imoveis::All();
 
-        return view('imoveis', ['imoveis' =>$imoveis]);
+        return view('imoveis', ['imoveis' => $imoveis]);
 
     }
 
     public function criarImovel() {
 
-        return view('imoveis/criar');
+        return view('imoveis/criarImovel');
 
     }
 
@@ -60,7 +60,6 @@ class ImoveisController extends Controller
 
         $imovel = new Imoveis;
 
-        $imovel->anunciante = $request->anunciante;
         $imovel->tipo_anuncio = $request->tipo_anuncio;
         $imovel->endereco = $request->endereco;
         $imovel->valor = $request->valor;
@@ -83,17 +82,18 @@ class ImoveisController extends Controller
 
         $user = auth()->user();
         $imovel->user_id = $user->id;
+        $imovel->anunciante_id = $user->id;
 
         $imovel->Save();
 
         if ($request->tipo == 'Apartamento') {
-            return redirect('/Imoveis/Criar/Apartamento');
+            return view('imoveis.criarApartamento', ['imovel_id' => $imovel->id]);
         } else if ($request->tipo == 'Casa') {
-            return redirect('/Imoveis/Criar/Casa');
+            return view('imoveis.criarCasa', ['imovel_id' => $imovel->id]);
         } else if ($request->tipo == 'Terreno') {
-            return redirect('/Imoveis/Criar/Terreno');
+            return view('imoveis.criarTerreno', ['imovel_id' => $imovel->id]);
         } else if ($request->tipo == 'Fazenda') {
-            return redirect('/Imoveis/Criar/Fazenda');
+            return view('imoveis.criarFazenda', ['imovel_id' => $imovel->id]);
         }
 
     }
@@ -111,6 +111,8 @@ class ImoveisController extends Controller
         $apartamento->andar = $request->andar;
         $apartamento->nome_do_predio = $request->nome_do_predio;
         $apartamento->predio_descricao = $request->predio_descricao;
+
+        $apartamento->imovel_id = $request->imovel_id;
 
         $apartamento->Save();
 
@@ -130,6 +132,8 @@ class ImoveisController extends Controller
 
         $casa->area_construida = $request->area_construida;
         $casa->area_terreno = $request->area_terreno;
+
+        $casa->imovel_id = $request->imovel_id;
 
         $casa->Save();
 
@@ -152,6 +156,8 @@ class ImoveisController extends Controller
         $terreno->agua = $request->agua;
         $terreno->luz = $request->luz;
 
+        $terreno->imovel_id = $request->imovel_id;
+
         $terreno->Save();
 
         return redirect('/Imoveis');
@@ -172,17 +178,19 @@ class ImoveisController extends Controller
         $fazenda->possui_plantacao = $request->possui_plantacao;
         $fazenda->possui_animais = $request->possui_animais;
 
+        $fazenda->imovel_id = $request->imovel_id;
+
         $fazenda->Save();
 
         return redirect('/Imoveis');
 
     }
 
-    public function show($id) {
+    public function showImovel($id) {
 
         $imovel = Imoveis::findOrFail($id);
 
-        $imovelOwner = User::Where('id', $imovel->user_id)->first()->toArray();
+        $imovelOwner = User::Where('id', $imovel->anunciante_id)->first()->toArray();
 
         return view('imoveis.show', ['imovel' => $imovel, 'imovelOwner' => $imovelOwner]);
 
@@ -198,12 +206,71 @@ class ImoveisController extends Controller
 
     }
 
-    public function destroy($id) {
+    public function destroyImovel($id) {
 
+        /*
+        $imovel = Imoveis::findOrFail($id);
+
+        $tipo = $imovel->tipo;
+
+        if ($tipo == 'Apartamento') {
+            ;
+        } else if ($tipo->tipo == 'Casa') {
+            ;
+        } else if ($tipo->tipo == 'Terreno') {
+            ;
+        } else if ($tipo->tipo == 'Fazenda') {
+            ;
+        }
+        */
         Imoveis::findOrFail($id)->delete();
 
         return redirect('/Dashboard')->with('msg', 'Imovel excluído com sucesso');
 
+    }
+
+    public function editImovel($id) {
+
+        $imovel = Imoveis::findOrFail($id);
+
+        return view('imoveis.editImovel', ['imovel' => $imovel]);
+
+    }
+
+    public function updateImovel(Request $request) {
+
+        $data = $request->all();
+
+        //Image upload
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $requestImage = $request->image;
+
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . '.' . $extension;
+
+            $requestImage->move(public_path('img/imoveis'), $imageName);
+
+            $data['image'] = $imageName;
+
+        }
+
+        Imoveis::findOrFail($request->id)->update($data);
+
+        $imovel = Imoveis::findOrFail($request->id);
+
+        if ($request->tipo == 'Apartamento') {
+            return view('imoveis.criarApartamento', ['imovel_id' => $imovel->id]);
+        } else if ($request->tipo == 'Casa') {
+            return view('imoveis.criarCasa', ['imovel_id' => $imovel->id]);
+        } else if ($request->tipo == 'Terreno') {
+            return view('imoveis.criarTerreno', ['imovel_id' => $imovel->id]);
+        } else if ($request->tipo == 'Fazenda') {
+            return view('imoveis.criarFazenda', ['imovel_id' => $imovel->id]);
+        }
+
+        return redirect('/dashboard')->with('msg', 'Imovel editado com sucesso');
     }
 
 }

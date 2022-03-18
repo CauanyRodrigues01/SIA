@@ -51,3 +51,8 @@ dashboard-imoveis-container form {
 .btn-editar-deletar a {
     margin-right: 10px;
 }
+
+.img-preview {
+    width: 100px;
+    margin-top: 20px;
+}

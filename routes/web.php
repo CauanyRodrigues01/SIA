@@ -17,17 +17,17 @@ Use App\Http\Controllers\ImoveisController;
 
 Route::get('/', [ImoveisController::class, 'index']);
 
-Route::get('/Imoveis/Criar', [ImoveisController::class, 'criarImovel'])->middleware('auth');
-Route::get('/Imoveis/{id}', [ImoveisController::class, 'show']);
-Route::get('/Imoveis', [ImoveisController::class, 'imoveis']);
-Route::post('/Imoveis', [ImoveisController::class, 'salvarImovel']);
-Route::delete('/Imoveis/{id}', [ImoveisController::class, 'destroy']);
-
-Route::get('/Dashboard', [ImoveisController::class, 'dashboard'])->middleware('auth');
-
 Route::get('/QuemSomos', [ImoveisController::class, 'quemSomos']);
 
 Route::get('/Contato', [ImoveisController::class, 'contato']);
+
+Route::get('/Imoveis/Criar', [ImoveisController::class, 'criarImovel'])->middleware('auth');
+Route::get('/Imoveis/{id}', [ImoveisController::class, 'showImovel']);
+Route::get('/Imoveis', [ImoveisController::class, 'imoveis']);
+Route::get('/Imoveis/Edit/{id}', [ImoveisController::class, 'editImovel'])->middleware('auth');
+Route::put('/Imoveis/Update/{id}', [ImoveisController::class, 'updateImovel'])->middleware('auth');
+Route::post('/Imoveis', [ImoveisController::class, 'salvarImovel']);
+Route::delete('/Imoveis/{id}', [ImoveisController::class, 'destroyImovel'])->middleware('auth');
 
 Route::get('/Corretores', [ImoveisController::class, 'corretores']);
 Route::get('/Corretores/Criar', [ImoveisController::class, 'criarCorretor']);
@@ -43,3 +43,5 @@ Route::post('/Imoveis/Terreno', [ImoveisController::class, 'salvarTerreno']);
 
 Route::get('/Imoveis/Criar/Fazenda', [ImoveisController::class, 'criarImovelFazenda']);
 Route::post('/Imoveis/Fazenda', [ImoveisController::class, 'salvarFazenda']);
+
+Route::get('/dashboard', [ImoveisController::class, 'dashboard'])->middleware('auth');

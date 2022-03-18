@@ -13,7 +13,6 @@
             <img src="/img/imoveis/{{ $imovel->image }}">
             <div class="card-bory">
                 <h5>{{ $imovel->tipo_anuncio }}</h5>
-                <p>Anunciado por <span>{{ $imovel->anunciante }}</span> </p>
                 <p>Localizado em <span>{{ $imovel->endereco }}</span></p>
                 <p>Valor = <span>{{ $imovel->valor }}R$</span></p>
                 <a href="/Imoveis/{{ $imovel->id }}" class="btn btn-primary">Saber mais</a>
