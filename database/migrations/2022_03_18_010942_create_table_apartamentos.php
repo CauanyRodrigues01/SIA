@@ -19,8 +19,8 @@ class CreateTableApartamentos extends Migration
             $table->integer('andar');
             $table->string('nome_do_predio');
             $table->text('predio_descricao');
-            $table->unsignedBigInteger('imovel_id');
-            $table->foreign('imovel_id')->references('id')->on('imoveis');
+            $table->unsignedBigInteger('imovel_id')->cascadeOnDelete();
+            $table->foreign('imovel_id')->references('id')->on('imoveis')->cascadeOnDelete();
 
             $table->timestamps();
         });

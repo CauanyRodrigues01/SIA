@@ -21,9 +21,8 @@ class CreateTableImoveis extends Migration
             $table->string('image');
             $table->float('valor');
             $table->string('tipo');
-            $table->unsignedBigInteger('anunciante_id');
-            $table->foreign('anunciante_id')->references('id')->on('users');
-            //$table->foreignId('anunciante_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('anunciante_id')->cascadeOnDelete();
+            $table->foreign('anunciante_id')->references('id')->on('users')->cascadeOnDelete();
 
             $table->timestamps();
         });

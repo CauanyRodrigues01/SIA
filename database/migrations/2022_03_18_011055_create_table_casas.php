@@ -18,8 +18,8 @@ class CreateTableCasas extends Migration
 
             $table->string('area_construida');
             $table->string('area_terreno');
-            $table->unsignedBigInteger('imovel_id');
-            $table->foreign('imovel_id')->references('id')->on('imoveis');
+            $table->unsignedBigInteger('imovel_id')->cascadeOnDelete();
+            $table->foreign('imovel_id')->references('id')->on('imoveis')->cascadeOnDelete();
 
             $table->timestamps();
         });

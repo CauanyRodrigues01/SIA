@@ -16,7 +16,6 @@
             <p class="imovel-anuncio">{{ $imovel->tipo_anuncio }}</p>
             <p class="imovel-endereco">{{ $imovel->endereco }}</p>
             <p class="imovel-valor">R$ {{ $imovel->valor }}</p>
-            <a href="#" class="btn btn-primary" id="imovel-submit">Comprar</a>
         </div>
     </div>
 

@@ -26,22 +26,12 @@ class ImoveisController extends Controller
 
     public function corretores() {
 
-        return view('corretores');
+        $users = User::All();
+
+        return view('corretores', ['users' => $users]);
 
     }
-
-    public function contato() {
-
-        return view('contato');
-
-    }
-
-    public function criarCorretor() {
-
-        return view('corretores/criar');
-
-    }
-
+    
     public function imoveis() {
 
         $imoveis = Imoveis::All();
@@ -208,24 +198,9 @@ class ImoveisController extends Controller
 
     public function destroyImovel($id) {
 
-        /*
-        $imovel = Imoveis::findOrFail($id);
-
-        $tipo = $imovel->tipo;
-
-        if ($tipo == 'Apartamento') {
-            ;
-        } else if ($tipo->tipo == 'Casa') {
-            ;
-        } else if ($tipo->tipo == 'Terreno') {
-            ;
-        } else if ($tipo->tipo == 'Fazenda') {
-            ;
-        }
-        */
         Imoveis::findOrFail($id)->delete();
 
-        return redirect('/Dashboard')->with('msg', 'Imovel excluído com sucesso');
+        return redirect('/dashboard')->with('msg', 'Imovel excluído com sucesso');
 
     }
 

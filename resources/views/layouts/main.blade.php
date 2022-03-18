@@ -42,9 +42,6 @@
                                 <a class="nav-link" href="/Corretores">Corretores</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/Contato">Contato</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="/Imoveis">Imoveis</a>
                             </li>
                             <li class="nav-item">

@@ -19,8 +19,6 @@ Route::get('/', [ImoveisController::class, 'index']);
 
 Route::get('/QuemSomos', [ImoveisController::class, 'quemSomos']);
 
-Route::get('/Contato', [ImoveisController::class, 'contato']);
-
 Route::get('/Imoveis/Criar', [ImoveisController::class, 'criarImovel'])->middleware('auth');
 Route::get('/Imoveis/{id}', [ImoveisController::class, 'showImovel']);
 Route::get('/Imoveis', [ImoveisController::class, 'imoveis']);

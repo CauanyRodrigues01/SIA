@@ -16,11 +16,12 @@ class CreateTableTerrenos extends Migration
         Schema::create('fazendas', function (Blueprint $table) {
             $table->id();
 
-            $table->boolean('possui_casa');
-            $table->boolean('possui_plantacao');
-            $table->boolean('possui_animais');
-            $table->unsignedBigInteger('imovel_id');
-            $table->foreign('imovel_id')->references('id')->on('imoveis');
+            $table->string('frente');
+            $table->string('lado');
+            $table->boolean('agua');
+            $table->boolean('luz');
+            $table->unsignedBigInteger('imovel_id')->cascadeOnDelete();
+            $table->foreign('imovel_id')->references('id')->on('imoveis')->cascadeOnDelete();
 
             $table->timestamps();
         });

@@ -23,22 +23,6 @@
                 <label for="valor">Valor (R$):</label>
                 <input type="number" class="form-control" id="valor" name="valor" value="{{ $imovel->valor }}">
             </div>
-            <div id="container-tipos">
-                <label for="tipos">Qual é o tipo do imóvel?</label>
-                <select name="tipo" id="tipos" class="form-control">
-                    <option value="Apartamento">Apartamento</option>
-                    <option value="Casa">Casa</option>
-                    <option value="Terreno">Terreno</option>
-                    <option value="Fazenda" >Fazenda</option>
-                </select>
-            </div>
-            <div>
-                <label for="tipo_anuncio">Qual é o tipo de anúcio?</label>
-                <select name="tipo_anuncio" id="tipo_anuncio" class="form-control">
-                    <option value="Venda-se">Venda-se</option>
-                    <option value="Aluga-se">Aluga-se</option>
-                </select>
-            </div>
             <input type="submit" class="w-100 btn btn-lg btn-warning" style="background: #F9E373" value="Editar imovel">
         </div>
       </form>

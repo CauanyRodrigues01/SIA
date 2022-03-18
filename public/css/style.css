@@ -56,3 +56,9 @@ dashboard-imoveis-container form {
     width: 100px;
     margin-top: 20px;
 }
+
+.card-bory img {
+    border-radius: 10px;
+    width: 20rem;
+    height: 15rem;
+}
